@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Queries 3</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+
+        img {
+            display: none;
+        }
+
+        /* .img1 {
+            width: 700px;
+        }
+
+        .img2 {
+            height: 800px;
+            width: 800px;
+        }
+
+        .img3 {
+            height: 560px;
+            width: 375px;
+        } */
+
+        @media(min-width:1025px) {
+            .img1 {
+                display: block;
+            }
+        }
+
+        @media(max-width:1024px) and (min-width:768px) {
+            .img2 {
+                display: block;
+            }
+        }
+
+        @media(max-width:767px) {
+            .img3 {
+                display: block;
+            }
+        }
+    </style>
+
+<body>
+    <div class="images">
+        <img src="laptop.jpg" alt="laptop" class="img1">
+        <img src="morning.jpg" alt="laptop" class="img2">
+        <img src="fog.jpg" alt="laptop" class="img3">
+    </div>
+</body>
+
+</html>
