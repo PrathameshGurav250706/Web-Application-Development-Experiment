@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(250, 247, 247);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(185, 187, 188);
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            margin: 10px;
+            padding: 8px;
+            width: 90%;
+        }
+
+        .btn {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px;
+            background-color:  #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+
+        <div class="btn">
+            <button onclick="calculate('+')">Add</button>
+            <button onclick="calculate('-')">Subtract</button>
+            <button onclick="calculate('*')">Multiply</button>
+            <button onclick="calculate('/')">Divide</button>
+        </div>
+
+        <div id="result">Result: </div>
+    </div>
+
+    <script>
+        function calculate(op) {
+            let n1 = parseFloat(document.getElementById("num1").value);
+            let n2 = parseFloat(document.getElementById("num2").value);
+            let result;
+
+            if (isNaN(n1) || isNaN(n2)) {
+                result = "Enter valid numbers";
+            } else {
+                if (op === '+') result = n1 + n2;
+                else if (op === '-') result = n1 - n2;
+                else if (op === '*') result = n1 * n2;
+                else if (op === '/') {
+                    if (n2 === 0) result = "Cannot divide by 0";
+                    else result = n1 / n2;
+                }
+            }
+
+            document.getElementById("result").innerText = "Result: " + result;
+        }
+    </script>
+
+</body>
+
+</html>
